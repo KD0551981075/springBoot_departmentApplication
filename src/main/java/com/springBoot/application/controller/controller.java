@@ -1,17 +1,18 @@
 package com.springBoot.application.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class controller {
 
-    @GetMapping
-    public String getDetails()
+    @Value("${welcome.message}")
+    String welcomeMessage;
+
+    @GetMapping("/")
+    public String getMessage()
     {
-
-        return  "this responce is from controller after the auto-update";
-
-
+        return welcomeMessage;
     }
 }
