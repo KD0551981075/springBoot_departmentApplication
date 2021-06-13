@@ -1,0 +1,54 @@
+server:
+  port: 8089
+
+welcome:
+  message: "Hi! this is my first spring boot hands on work :-)"
+
+spring:
+  profile:
+    active: prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "beans,caches"
+
+---
+
+spring:
+  profile: dev
+  datasource:
+    url: jdbc:h2:mem:dev
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+---
+spring:
+  profile: qa
+  datasource:
+    url: jdbc:h2:mem:qa
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+
+---
+spring:
+  profile: prod
+  datasource:
+    url: jdbc:h2:mem:prod
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+---
+
